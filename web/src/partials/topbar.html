@@ -1,0 +1,70 @@
+<div class="bg-base-200 border-base-300 border-b px-1 py-1.5 text-center text-[11px] sm:text-sm">
+    <span>
+        <span class="text-primary font-medium">PivotCut</span>
+        is free and open source — download it today.
+    </span>
+</div>
+
+<div
+    id="layout-topbar"
+    class="bg-base-100 lg:bg-base-100/90 border-base-300 sticky top-0 z-10 border-b data-[at-top=true]:border-transparent lg:backdrop-blur-sm">
+    <div class="container">
+        <nav class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+                <label
+                    for="menu-drawer"
+                    id="menu-drawer-trigger"
+                    aria-label="open sidebar"
+                    class="btn btn-square btn-ghost btn-sm lg:hidden">
+                    <span class="iconify lucide--menu size-5"></span>
+                </label>
+
+                <!-- Navbar Brand logo -->
+                <a href="#home" class="text-xl font-semibold">PivotCut</a>
+            </div>
+
+            <div class="max-lg:hidden">
+                <ul class="menu menu-horizontal gap-2 px-1">
+                    <li class="font-medium"><a href="#home">Home</a></li>
+                    <li class="font-medium"><a href="#features">Features</a></li>
+                    <li class="font-medium"><a href="#how-it-works">How It Works</a></li>
+                    <li class="font-medium"><a href="#download">Download</a></li>
+                    <li class="font-medium"><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="space-x-2">
+                <a
+                    class="btn btn-ghost btn-sm"
+                    href="https://github.com/AlessioQuagliara/PivotCut"
+                    target="_blank"
+                    rel="noopener">
+                    <span class="iconify lucide--github size-4"></span>
+                    GitHub
+                </a>
+                <a class="btn btn-primary btn-sm" href="#download">
+                    <span class="iconify lucide--download size-4"></span>
+                    Download
+                </a>
+            </div>
+        </nav>
+
+        <!-- sm screen menu (drawer) -->
+        <div class="drawer">
+            <input id="menu-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-side">
+                <label for="menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <div class="bg-base-100 min-h-full w-60 p-5">
+                    <a href="#home" class="text-xl font-semibold">PivotCut</a>
+                    <ul class="menu w-full gap-2 p-0 pt-4">
+                        <li class="font-medium"><a href="#home">Home</a></li>
+                        <li class="font-medium"><a href="#features">Features</a></li>
+                        <li class="font-medium"><a href="#how-it-works">How It Works</a></li>
+                        <li class="font-medium"><a href="#download">Download</a></li>
+                        <li class="font-medium"><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

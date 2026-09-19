@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environment
+.venv/
+venv/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# macOS
+.DS_Store
+
+# PivotCut export temp output
+export_tmp/
+*.mp4.tmp
+
+# PyInstaller macOS packaging (Milestone 5B) - build/ and dist/ above already
+# cover the PyInstaller work dir and the produced PivotCut.app; these catch
+# stray artifacts outside that convention. pivotcut.spec itself IS versioned.
+*.spec.backup
+*.app
+*.dmg
+
+# Editors
+.vscode/
+.idea/
+
+# Website (web/) - Vite/npm build tooling for the GitHub Pages landing
+# page. The actual deployed site is the committed /docs folder (Vite's
+# build.outDir, see web/vite.config.js) - everything below is either
+# regenerable via `npm --prefix web run build` or a stale/unused copy of
+# the original purchased template kept only for local reference.
+web/node_modules/
+web/html/

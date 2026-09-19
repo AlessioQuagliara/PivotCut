@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en" class="group/html">
+    <head>
+        <meta charset="utf-8" />
+<title>PivotCut — Free 2D Cut-Out Animation for macOS</title>
+<meta
+    content="PivotCut is a free, open-source 2D cut-out animation app for macOS (Apple Silicon), inspired by Pivot Animator. Hierarchical character rigs, a virtual camera, 2.5D parallax layers, and PNG/MP4 export."
+    name="description" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="shortcut icon" href="./images/favicon.ico" />
+
+<script src="https://cdn.jsdelivr.net/npm/card3d@2.6.5/dist/card3d.min.js"></script>
+
+      <link rel="stylesheet" href="./assets/index.css">
+    </head>
+
+    <body>
+        <div class="bg-base-200 border-base-300 border-b px-1 py-1.5 text-center text-[11px] sm:text-sm">
+    <span>
+        <span class="text-primary font-medium">PivotCut</span>
+        is free and open source — download it today.
+    </span>
+</div>
+
+<div
+    id="layout-topbar"
+    class="bg-base-100 lg:bg-base-100/90 border-base-300 sticky top-0 z-10 border-b data-[at-top=true]:border-transparent lg:backdrop-blur-sm">
+    <div class="container">
+        <nav class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+                <label
+                    for="menu-drawer"
+                    id="menu-drawer-trigger"
+                    aria-label="open sidebar"
+                    class="btn btn-square btn-ghost btn-sm lg:hidden">
+                    <span class="iconify lucide--menu size-5"></span>
+                </label>
+
+                <!-- Navbar Brand logo -->
+                <a href="#home" class="text-xl font-semibold">PivotCut</a>
+            </div>
+
+            <div class="max-lg:hidden">
+                <ul class="menu menu-horizontal gap-2 px-1">
+                    <li class="font-medium"><a href="#home">Home</a></li>
+                    <li class="font-medium"><a href="#features">Features</a></li>
+                    <li class="font-medium"><a href="#how-it-works">How It Works</a></li>
+                    <li class="font-medium"><a href="#download">Download</a></li>
+                    <li class="font-medium"><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="space-x-2">
+                <a
+                    class="btn btn-ghost btn-sm"
+                    href="https://github.com/AlessioQuagliara/PivotCut"
+                    target="_blank"
+                    rel="noopener">
+                    <span class="iconify lucide--github size-4"></span>
+                    GitHub
+                </a>
+                <a class="btn btn-primary btn-sm" href="#download">
+                    <span class="iconify lucide--download size-4"></span>
+                    Download
+                </a>
+            </div>
+        </nav>
+
+        <!-- sm screen menu (drawer) -->
+        <div class="drawer">
+            <input id="menu-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-side">
+                <label for="menu-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <div class="bg-base-100 min-h-full w-60 p-5">
+                    <a href="#home" class="text-xl font-semibold">PivotCut</a>
+                    <ul class="menu w-full gap-2 p-0 pt-4">
+                        <li class="font-medium"><a href="#home">Home</a></li>
+                        <li class="font-medium"><a href="#features">Features</a></li>
+                        <li class="font-medium"><a href="#how-it-works">How It Works</a></li>
+                        <li class="font-medium"><a href="#download">Download</a></li>
+                        <li class="font-medium"><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <section class="py-8 lg:py-20" id="home">
+            <div class="container">
+                <div class="grid gap-8 lg:grid-cols-2 lg:gap-16">
+                    <div class="max-lg:order-2">
+                        <div class="badge badge-soft badge-primary">100% Free &amp; Open Source</div>
+                        <h1 class="mt-3 text-4xl font-bold tracking-tight lg:text-6xl lg:leading-none">
+                            2D cut-out animation,
+                            <span class="text-primary">natively on macOS</span>.
+                        </h1>
+                        <p class="text-base-content/80 mt-8 sm:text-lg">
+                            PivotCut is a free, open-source 2D cut-out animation app for Apple
+                            Silicon, inspired by Pivot Animator. Build hierarchical character rigs,
+                            pose them on a thumbnail timeline, add 2.5D parallax layers and a
+                            virtual camera, then export straight to a PNG sequence or MP4.
+                        </p>
+                        <div class="mt-8 inline-flex flex-wrap gap-3 sm:mt-16">
+                            <a
+                                href="https://github.com/AlessioQuagliara/PivotCut/releases/latest"
+                                target="_blank"
+                                rel="noopener">
+                                <button class="btn btn-primary">
+                                    <span class="iconify lucide--download size-4"></span>
+                                    Download for macOS — Free
+                                </button>
+                            </a>
+                            <a
+                                href="https://github.com/AlessioQuagliara/PivotCut"
+                                target="_blank"
+                                rel="noopener">
+                                <button class="btn btn-ghost">
+                                    <span class="iconify lucide--github size-4"></span>
+                                    View Source on GitHub
+                                </button>
+                            </a>
+                        </div>
+                        <p class="text-base-content/60 mt-4 text-sm">
+                            Requires macOS on Apple Silicon. No account, no subscription, no
+                            telemetry.
+                        </p>
+                    </div>
+
+                    <div
+                        class="from-primary/40 to-secondary/40 h-fit rounded-2xl bg-linear-to-r p-3 max-lg:order-1"
+                        data-card3d
+                        data-card3d-perspective="1000"
+                        data-card3d-full-page-listening>
+                        <!--
+                          SCREENSHOT PLACEHOLDER: replace with a real PivotCut screenshot at
+                          web/public/images/screenshots/hero.png (suggested size ~1200x800,
+                          e.g. the canvas + timeline + inspector in action).
+                        -->
+                        <img
+                            alt="PivotCut app screenshot placeholder — replace public/images/screenshots/hero.png"
+                            class="rounded-lg"
+                            src="./images/screenshots/hero.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-8 lg:py-20" id="features">
+            <div class="absolute start-[10%]">
+                <div
+                    class="from-primary/10 to-secondary/10 pointer-events-none aspect-square w-60 rounded-full bg-gradient-to-r blur-3xl lg:w-[600px]"></div>
+            </div>
+
+            <div class="container">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">
+                        Everything you need to animate
+                    </h2>
+                    <p class="text-base-content/80 mt-4 text-center sm:text-lg">
+                        A focused, modern take on classic cut-out animation
+                    </p>
+                </div>
+
+                <div class="mt-8 space-y-8 lg:mt-20 xl:space-y-20">
+                    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16">
+                        <div class="rounded-box overflow-hidden">
+                            <!--
+                              SCREENSHOT PLACEHOLDER: web/public/images/screenshots/rig-builder.png
+                              (suggested: the Character Rig Builder dialog, ~1000x600)
+                            -->
+                            <img
+                                alt="PivotCut Character Rig Builder screenshot placeholder — replace public/images/screenshots/rig-builder.png"
+                                class="object-cover"
+                                src="./images/screenshots/rig-builder.png" />
+                        </div>
+
+                        <div class="lg:mt-8">
+                            <div class="badge badge-soft badge-primary">Character Rigs</div>
+                            <h3 class="mt-3 text-xl font-medium sm:text-2xl">
+                                Hierarchical cut-out rigs
+                            </h3>
+                            <p class="text-base-content/80 mt-1">
+                                Assemble characters from transparent PNG parts with real forward
+                                kinematics — rotate a shoulder and the whole arm follows.
+                            </p>
+                            <ul class="mt-4 list-inside list-disc">
+                                <li>Parent/child bone hierarchy with pivots and attach points</li>
+                                <li>Reusable Character Library — build once, pose everywhere</li>
+                                <li>Reliable Undo/Redo on every editing action</li>
+                                <li>AI Text-to-Animation to generate a first pass from a prompt</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16">
+                        <div>
+                            <div class="badge badge-soft badge-secondary">Timeline</div>
+                            <h3 class="mt-3 text-xl font-medium sm:text-2xl">
+                                Frame-by-frame timeline
+                            </h3>
+                            <p class="text-base-content/80 mt-1">
+                                A Pivot Animator-style thumbnail timeline, rendered live from your
+                                actual scene — drag to reorder, set FPS and per-project exposure.
+                            </p>
+
+                            <ul class="mt-4 list-inside list-disc">
+                                <li>Real, rendered thumbnails — not static placeholders</li>
+                                <li>Drag-and-drop frame reordering</li>
+                                <li>Optional Smooth Animation: spline easing between poses</li>
+                                <li>Playback that respects FPS and exposure</li>
+                            </ul>
+                        </div>
+
+                        <div class="order-first lg:order-last">
+                            <div class="rounded-box overflow-hidden">
+                                <!--
+                                  SCREENSHOT PLACEHOLDER: web/public/images/screenshots/timeline.png
+                                  (suggested: the timeline strip with a few posed frames, ~1000x600)
+                                -->
+                                <img
+                                    alt="PivotCut timeline screenshot placeholder — replace public/images/screenshots/timeline.png"
+                                    src="./images/screenshots/timeline.png" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16">
+                        <div class="overflow-hidden rounded-lg">
+                            <!--
+                              SCREENSHOT PLACEHOLDER: web/public/images/screenshots/export.png
+                              (suggested: the Export dialog/progress, or a finished exported clip
+                              frame, ~1000x600)
+                            -->
+                            <img
+                                alt="PivotCut export screenshot placeholder — replace public/images/screenshots/export.png"
+                                src="./images/screenshots/export.png" />
+                        </div>
+
+                        <div class="lg:mt-8">
+                            <div class="badge badge-soft badge-error">Camera &amp; Export</div>
+                            <h3 class="mt-3 text-xl font-medium sm:text-2xl">
+                                Virtual camera, parallax &amp; export
+                            </h3>
+                            <p class="text-base-content/80 mt-1">
+                                A per-frame virtual camera and depth-based 2.5D parallax layers
+                                give your scenes real depth — then export straight to a PNG
+                                sequence or MP4.
+                            </p>
+                            <ul class="mt-4 list-inside list-disc">
+                                <li>Background/midground/foreground layers with parallax depth</li>
+                                <li>Per-frame camera position &amp; zoom</li>
+                                <li>PNG sequence export — always available, no setup needed</li>
+                                <li>MP4 (H.264) export via FFmpeg, when installed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8 lg:py-20" id="how-it-works">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">How PivotCut works</h2>
+                    <p class="text-base-content/80 mt-4 sm:text-lg">
+                        From transparent PNGs to an exported animation, in three steps
+                    </p>
+                </div>
+
+                <div class="mt-8 grid gap-6 lg:grid-cols-3">
+                    <div class="card card-border">
+                        <div class="card-body">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="bg-primary/10 text-primary flex size-12 items-center justify-center rounded-full text-xl font-semibold">
+                                    1
+                                </div>
+                                <h3 class="text-lg font-medium">Import your PNGs</h3>
+                            </div>
+                            <p class="mt-2">
+                                Bring in transparent character parts, backgrounds and props —
+                                PivotCut keeps a reusable asset registry for the whole project.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-border">
+                        <div class="card-body">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="bg-secondary/10 text-secondary flex size-12 items-center justify-center rounded-full text-xl font-semibold">
+                                    2
+                                </div>
+                                <h3 class="text-lg font-medium">Build &amp; pose your character</h3>
+                            </div>
+                            <p class="mt-2">
+                                Assemble a hierarchical rig in the Character Rig Builder, then pose
+                                it directly on the canvas or with the AI Text-to-Animation
+                                assistant.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-border">
+                        <div class="card-body">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="bg-accent/10 text-accent flex size-12 items-center justify-center rounded-full text-xl font-semibold">
+                                    3
+                                </div>
+                                <h3 class="text-lg font-medium">Export your animation</h3>
+                            </div>
+                            <p class="mt-2">
+                                Render a PNG sequence or an MP4 with the virtual camera, parallax
+                                layers and Smooth Animation easing all baked in.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8 lg:py-20" id="download">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">Download PivotCut</h2>
+                    <p class="text-base-content/80 mt-2 sm:text-lg">
+                        Free and open source. No account, no subscription, no catch.
+                    </p>
+                </div>
+
+                <div class="mt-8 flex justify-center">
+                    <div class="card border-base-300 w-full max-w-md border p-3">
+                        <div class="bg-primary/10 rounded-box p-6 text-center">
+                            <h3 class="text-primary text-xl font-semibold">PivotCut for macOS</h3>
+                            <p class="mt-2 flex items-baseline justify-center">
+                                <span class="text-5xl font-semibold tracking-tight">Free</span>
+                            </p>
+                            <p class="mt-4">
+                                Apple Silicon (arm64) build. FFmpeg optional, needed only for MP4
+                                export.
+                            </p>
+                        </div>
+                        <div class="p-6">
+                            <ul class="list-inside list-disc space-y-3" role="list">
+                                <li>
+                                    <span class="ms-3">
+                                        Hierarchical character rigs (forward kinematics)
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="ms-3">
+                                        Frame-by-frame timeline with real thumbnails
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="ms-3">2.5D parallax layers &amp; a virtual camera</span>
+                                </li>
+                                <li>
+                                    <span class="ms-3">PNG sequence &amp; MP4 export</span>
+                                </li>
+                                <li>
+                                    <span class="ms-3">
+                                        AI Text-to-Animation &amp; Smooth Animation
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="ms-3">Full source code available on GitHub</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a
+                            href="https://github.com/AlessioQuagliara/PivotCut/releases/latest"
+                            target="_blank"
+                            rel="noopener">
+                            <button class="btn btn-primary btn-block mt-auto">
+                                <span class="iconify lucide--download size-4"></span>
+                                Download Latest Release
+                            </button>
+                        </a>
+                        <a
+                            class="mt-2 block"
+                            href="https://github.com/AlessioQuagliara/PivotCut"
+                            target="_blank"
+                            rel="noopener">
+                            <button class="btn btn-outline border-base-300 btn-block">
+                                <span class="iconify lucide--github size-4"></span>
+                                View Source on GitHub
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8 lg:py-20" id="faq">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="text-3xl font-semibold sm:text-4xl">FAQ</h2>
+                    <p class="text-base-content/80 mt-2 sm:text-lg">
+                        Common questions about PivotCut
+                    </p>
+                </div>
+
+                <div class="mt-12 flex justify-center gap-6">
+                    <div class="space-y-4 lg:w-1/2">
+                        <div class="collapse-arrow border-base-content/10 collapse border">
+                            <input
+                                checked="checked"
+                                name="faq"
+                                type="radio"
+                                aria-label="open/close" />
+                            <div class="collapse-title text-xl font-medium">
+                                Is PivotCut really free?
+                            </div>
+                            <div class="collapse-content">
+                                <p class="text-base">
+                                    Yes. PivotCut is completely free to download and use, with no
+                                    account, subscription or in-app purchases.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collapse-arrow border-base-content/10 collapse border">
+                            <input name="faq" type="radio" aria-label="open/close" />
+                            <div class="collapse-title text-xl font-medium">
+                                What are the system requirements?
+                            </div>
+                            <div class="collapse-content">
+                                <p class="text-base">
+                                    macOS running on Apple Silicon. PivotCut is a native arm64 app
+                                    built with PySide6 (Qt) and Pillow.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collapse-arrow border-base-content/10 collapse border">
+                            <input name="faq" type="radio" aria-label="open/close" />
+                            <div class="collapse-title text-xl font-medium">
+                                Do I need FFmpeg?
+                            </div>
+                            <div class="collapse-content">
+                                <p class="text-base">
+                                    Only for MP4 export. PivotCut works fully without it — PNG
+                                    sequence export, playback and every editing feature need no
+                                    extra setup. Install FFmpeg with
+                                    <code>brew install ffmpeg</code>
+                                    if you want MP4 output.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collapse-arrow border-base-content/10 collapse border">
+                            <input name="faq" type="radio" aria-label="open/close" />
+                            <div class="collapse-title text-xl font-medium">
+                                Does PivotCut collect any data?
+                            </div>
+                            <div class="collapse-content">
+                                <p class="text-base">
+                                    No. PivotCut runs entirely on your machine — your projects,
+                                    PNGs and exports never leave your computer, unless you choose
+                                    to use the optional AI Text-to-Animation feature with your own
+                                    API key.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collapse-arrow border-base-content/10 collapse border">
+                            <input name="faq" type="radio" aria-label="open/close" />
+                            <div class="collapse-title text-xl font-medium">
+                                Is the source code available?
+                            </div>
+                            <div class="collapse-content">
+                                <p class="text-base">
+                                    Yes — PivotCut's full source is on
+                                    <a
+                                        class="link"
+                                        href="https://github.com/AlessioQuagliara/PivotCut"
+                                        target="_blank"
+                                        rel="noopener">
+                                        GitHub
+                                    </a>
+                                    . Issues and pull requests are welcome.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="border-base-300 border-t">
+    <div class="divide-base-300 grid divide-x lg:grid-cols-2">
+        <div class="divide-base-300 divide-y">
+            <div class="p-8 sm:p-10 md:px-16 xl:px-40 xl:py-16">
+                <div class="flex justify-between gap-8">
+                    <p class="text-xl font-medium">PivotCut</p>
+                    <p class="max-w-sm">Free, open-source 2D cut-out animation for macOS.</p>
+                </div>
+            </div>
+
+            <div class="p-8 sm:p-10 md:px-16 xl:px-40 xl:py-16">
+                <div class="grid grid-cols-2 gap-6 md:grid-cols-3">
+                    <div>
+                        <h2 class="text-lg font-medium">PivotCut</h2>
+                        <div
+                            class="**:hover:text-primary mt-4 space-y-2 **:block **:transition-all">
+                            <a href="#home">Home</a>
+                            <a href="#features">Features</a>
+                            <a href="#how-it-works">How It Works</a>
+                            <a href="#faq">FAQ</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-medium">Get PivotCut</h2>
+                        <div
+                            class="**:hover:text-primary mt-4 space-y-2 **:block **:transition-all">
+                            <a href="#download">Download</a>
+                            <a
+                                href="https://github.com/AlessioQuagliara/PivotCut"
+                                target="_blank"
+                                rel="noopener">
+                                Source Code
+                            </a>
+                            <a
+                                href="https://github.com/AlessioQuagliara/PivotCut/releases"
+                                target="_blank"
+                                rel="noopener">
+                                Releases
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-medium">Community</h2>
+                        <div
+                            class="**:hover:text-primary mt-4 space-y-2 **:block **:transition-all">
+                            <a
+                                href="https://github.com/AlessioQuagliara/PivotCut/issues"
+                                target="_blank"
+                                rel="noopener">
+                                Report an Issue
+                            </a>
+                            <a
+                                href="https://github.com/AlessioQuagliara/PivotCut/discussions"
+                                target="_blank"
+                                rel="noopener">
+                                Discussions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-first flex items-center justify-center lg:order-last">
+            <div class="p-8 text-center lg:p-20">
+                <div class="badge badge-ghost">Free &amp; Open Source</div>
+                <h2 class="mt-4 text-2xl font-medium sm:text-3xl">Ready to start animating?</h2>
+                <p class="text-base-content/80 mt-2">
+                    Download PivotCut for macOS and bring your characters to life.
+                </p>
+                <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+                    <a
+                        href="https://github.com/AlessioQuagliara/PivotCut/releases/latest"
+                        target="_blank"
+                        rel="noopener">
+                        <button class="btn btn-primary">
+                            <span class="iconify lucide--download size-4"></span>
+                            Download for macOS
+                        </button>
+                    </a>
+                    <a
+                        href="https://github.com/AlessioQuagliara/PivotCut"
+                        target="_blank"
+                        rel="noopener">
+                        <button class="btn btn-ghost">
+                            <span class="iconify lucide--github size-4"></span>
+                            GitHub
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-base-300 border-t px-8 py-4 text-center lg:px-40">
+        PivotCut is free, open-source software. Template by
+        <a class="link-hover link" href="https://daisyui.com" target="_blank">daisyUI</a>
+    </div>
+</footer>
+
+
+        <!-- Theme Toggle -->
+<div class="fixed end-5 bottom-5 z-10 flex flex-col items-center">
+    <div class="dropdown dropdown-end dropdown-top">
+        <div class="btn mt-2" role="button" tabindex="0">
+            Theme
+            <span class="iconify lucide--chevron-up size-3.5"></span>
+        </div>
+        <ul class="menu dropdown-content rounded-box bg-base-100 w-52 shadow" tabindex="0">
+            <li>
+                <div
+                    data-theme-control="system"
+                    class="group-[:not([data-theme])]/html:bg-base-200 flex items-center">
+                    <span class="iconify lucide--laptop size-4.5"></span>
+                    System
+                </div>
+            </li>
+            <li>
+                <div
+                    data-theme-control="light"
+                    class="group-data-[theme=light]/html:bg-base-200 flex items-center">
+                    <span class="iconify lucide--sun size-4.5"></span>
+                    Light
+                </div>
+            </li>
+            <li>
+                <div
+                    data-theme-control="dark"
+                    class="group-data-[theme=dark]/html:bg-base-200 flex items-center">
+                    <span class="iconify lucide--moon size-4.5"></span>
+                    Dark
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+        <script src="./js/app.js"></script>
+    </body>
+</html>

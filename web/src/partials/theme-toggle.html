@@ -1,0 +1,35 @@
+<!-- Theme Toggle -->
+<div class="fixed end-5 bottom-5 z-10 flex flex-col items-center">
+    <div class="dropdown dropdown-end dropdown-top">
+        <div class="btn mt-2" role="button" tabindex="0">
+            Theme
+            <span class="iconify lucide--chevron-up size-3.5"></span>
+        </div>
+        <ul class="menu dropdown-content rounded-box bg-base-100 w-52 shadow" tabindex="0">
+            <li>
+                <div
+                    data-theme-control="system"
+                    class="group-[:not([data-theme])]/html:bg-base-200 flex items-center">
+                    <span class="iconify lucide--laptop size-4.5"></span>
+                    System
+                </div>
+            </li>
+            <li>
+                <div
+                    data-theme-control="light"
+                    class="group-data-[theme=light]/html:bg-base-200 flex items-center">
+                    <span class="iconify lucide--sun size-4.5"></span>
+                    Light
+                </div>
+            </li>
+            <li>
+                <div
+                    data-theme-control="dark"
+                    class="group-data-[theme=dark]/html:bg-base-200 flex items-center">
+                    <span class="iconify lucide--moon size-4.5"></span>
+                    Dark
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

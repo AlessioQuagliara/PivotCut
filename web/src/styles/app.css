@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;1000&display=swap");
+
+@import "tailwindcss";
+@import "./daisyui.css";
+
+@plugin "@iconify/tailwind4" {
+    prefixes: lucide;
+}
+
+@theme {
+    --font-body: "DM Sans", sans-serif;
+}
+
+/** Container utility **/
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    @apply px-[1rem] sm:px-[1rem] md:px-[2rem] lg:px-[3rem] xl:px-[4rem] 2xl:px-[6rem];
+}
+
+html {
+    @apply relative scroll-smooth;
+}
+
+body {
+    @apply bg-base-100 font-body text-base-content overflow-x-hidden;
+}
+
+:target {
+    @apply scroll-m-12 lg:scroll-mt-0;
+}
