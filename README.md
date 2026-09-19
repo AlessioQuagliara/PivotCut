@@ -706,8 +706,6 @@ Distinzione fondamentale, documentata in `domain/playback.py`:
   sopra). Non è pensato per la distribuzione ad altri utenti.
 - Target di build: solo **arm64 nativo** (Apple Silicon). Questo NON è un
   binario universal2: non gira nativamente su Mac Intel (né lo dichiara).
-- Nessuna icona `.icns` personalizzata: il bundle usa l'icona generica di
-  PyInstaller/macOS.
 - FFmpeg non è mai incluso nel bundle e non è richiesto per l'export PNG;
   l'export MP4 senza FFmpeg installato mostra lo stesso messaggio "non
   trovato" già presente da Milestone 4.

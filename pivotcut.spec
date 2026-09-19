@@ -26,6 +26,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(SPECPATH)  # noqa: F821 - PyInstaller-injected global
 SRC_DIR = PROJECT_ROOT / "src"
 RESOURCES_DIR = SRC_DIR / "pivotcut" / "resources"
+ICON_PATH = RESOURCES_DIR / "icons" / "pivotcut.icns"
 
 # Only src/pivotcut/resources/ is bundled as data — never tests/, .venv/,
 # user project files, or export output. Included even though it currently
@@ -88,9 +89,7 @@ coll = COLLECT(  # noqa: F821 - PyInstaller-injected global
 app = BUNDLE(  # noqa: F821 - PyInstaller-injected global
     coll,
     name="PivotCut.app",
-    # No .icns yet: falls back to PyInstaller's generic app icon. Documented
-    # as a known limitation in README's "Build macOS" section.
-    icon=None,
+    icon=str(ICON_PATH) if ICON_PATH.is_file() else None,
     bundle_identifier="com.pivotcut.app",
     info_plist={
         "CFBundleName": "PivotCut",
